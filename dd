@@ -1,0 +1,16 @@
+seq 1 37 | while read line ; do curl --silent "https://elearning.intra.42.fr/videos?page=$line" -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63\
+.0" -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" -H "Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3" --compressed -H "Referer: https://elearning.intra\
+.42.fr/videos?page=2" -H "Connection: keep-alive" -H "Cookie: __utma=245810561.342997831.1522758284.1538127033.1538142147.13; __utmz=245810561.1538084562.11.9.utmcsr=42.fr|utmccn=(referral\
+)|utmcmd=referral|utmcct=/etre-admissible/; _intra_42_session_production=b11de63423834f7fd14f513cac01d866; user.id=NDI2ODU"%"3D--94ffe874337d27cb654e20509ed77cdce7a9673f" -H "Upgrade-Insec\
+ure-Requests: 1" -H "If-None-Match: W/""137cc3a04363c912af959720c8d9ffc1""" -H "Cache-Control: max-age=0" |  grep -o "/notions/piscine[-a-zA-Z0-9@:%_\+\.~#?&\/=]*" | sed -e 's/$/\/seen/'>>\
+dd.txt ; done
+
+curl --silent "https://elearning.intra.42.fr/videos" -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0" -H "Accept: text/html,application/xhtml\
++xml,application/xml;q=0.9,*/*;q=0.8" -H "Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3" --compressed -H "Referer: https://elearning.intra.42.fr/videos?page=2" -H "Connection: keep-\
+alive" -H "Cookie: __utma=245810561.342997831.1522758284.1538127033.1538142147.13; __utmz=245810561.1538084562.11.9.utmcsr=42.fr|utmccn=(referral)|utmcmd=referral|utmcct=/etre-admissible/;\
+ _intra_42_session_production=b11de63423834f7fd14f513cac01d866; user.id=NDI2ODU"%"3D--94ffe874337d27cb654e20509ed77cdce7a9673f" -H "Upgrade-Insecure-Requests: 1" -H "If-None-Match: W/""137\
+cc3a04363c912af959720c8d9ffc1""" -H "Cache-Control: max-age=0" |  grep -o "/notions/[-a-zA-Z0-9@:%_\+\.~#?&\/=]*" | sed -e 's/$/\/seen/' > dd.txt
+
+cat dd.txt | while read line ; do curl --silent "https://elearning.intra.42.fr$line" -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0" -H "Acc\
+ept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" -H "Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3" --compressed -H "Referer: https://profile.intra.42.fr/" -H "\
+DNT: 1" -H "Connection: keep-alive" -H "Cookie: _intra_42_session_production=13abece43b5ba5d45b2ca2edaaf7b4e7" -H "Upgrade-Insecure-Requests: 1" ; done
