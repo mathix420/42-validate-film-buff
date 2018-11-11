@@ -1,6 +1,6 @@
 # 42-validate-film-buff
 
-Python 3 script to unlock 6 achivements in Intra42.
+Python 3 script to unlock 6 achievements in 42.
 
 Just launch the script and give him what he want !
 
